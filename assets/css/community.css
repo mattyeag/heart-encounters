@@ -1,0 +1,157 @@
+.community-container {
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.business-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.business-card {
+  background: #faf7f3;
+  border: 2px solid #654c3d;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  max-width: 340px;
+  flex: 1 1 300px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.business-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.business-image {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+
+
+.business-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.business-header {
+  font-weight: 600;
+  color: #654c3d;
+  margin-bottom: 0.5rem;
+}
+
+.business-details {
+  color: #444;
+  font-size: 1rem;
+}
+
+
+.business-detail {
+  max-width: 800px;
+  margin: 0 auto 5rem;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.business-detail h2.business-detail-name {
+  font-size: 2rem;
+  color: #3e2f25;
+  margin-bottom: 1rem;
+}
+
+.business-detail img.business-detail-image {
+  /* width: 100%; */
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+
+.business-detail h4.business-detail-header {
+  color: #5b4335;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.business-detail p.business-detail-description {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.business-detail p.business-full-detail {
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Fade-in animation for the new section */
+.business-detail {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* 
+ business connect partial
+*/
+.business-connect {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #ddd;
+}
+.business-connect-title {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.business-connect-links p {
+  margin: 0.25rem 0;
+}
+.business-connect a {
+  color: #0077cc;
+  text-decoration: none;
+}
+.business-connect a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Responsive stacking */
+@media (max-width: 768px) {
+  .business-card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,53 @@
+.customer-reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+
+.review-card {
+  margin: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 300px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.review-quote {
+  font-style: italic;
+  color: #444;
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.review-rating {
+  font-size: 1.2rem;
+  color: rgb(255, 193, 7); /* gold stars */
+  margin-bottom: 1rem;
+}
+
+.review-author {
+  font-weight: bold;
+  color: rgb(103, 70, 54);
+}
+
+
+/* customer reviews section */
+#customer-review-header{
+  text-align: center;
+  font-style: italic;
+}

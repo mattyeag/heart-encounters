@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties | My Company</title>
+  <link rel="stylesheet" href="../assets/css/styles.css?v=1.0.10" />
+  <link rel="stylesheet" href="../assets/css/card-styles.css?v=1.0.10">
+  <link rel="stylesheet" href="../assets/css/property-details-modal.css?v=1.0.10">
+
+</head>
+<body data-page="resedential">
+  <header id="site-header"></header>
+
+  <main class="resedential">
+    <br>
+    <section class="sub-menu">
+      <button class="filter-btn" data-status="open">Available</button>
+      <button class="filter-btn" data-status="soon">Coming Soon</button>
+      <button class="filter-btn active" data-status="all">All</button>
+    </section>
+
+    <section id="resedential-list" class="resedential">
+      <!-- Dynamic property cards will be injected here -->
+    </section>
+
+     <div id="property-details"></div>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+<script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+<script src="../assets/js/main.js?v=1.0.10"></script>
+<script src="../assets/js/resedential.js?v=1.0.10"></script>
+</body>
+</html>
