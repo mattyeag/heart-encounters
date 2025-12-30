@@ -1,4 +1,4 @@
-#resedential-list {
+#classes-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
@@ -74,13 +74,13 @@
    Featured Property section - home
 */
 
-#resedential-list.featured-properties {
+#classes-list.featured-classes {
   grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
 }
 
 /* Mobile override for featured section */
 @media (max-width: 768px) {
-  #resedential-list.featured-properties {
+  #classes-list.featured-classes {
     grid-template-columns: 1fr; 
   }
 }

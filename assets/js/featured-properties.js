@@ -58,7 +58,7 @@ function createPropertyCard(property) {
   }
   
   // render properties tagged as FEATURED 
-  const container = document.getElementById("resedential-list");
+  const container = document.getElementById("classes-list");
   container.innerHTML = propertyList.filter(prop => 
     prop.FEATURED.toLowerCase() === "true"
     && (prop.COMMERCIAL.toLowerCase() === "true"

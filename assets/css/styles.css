@@ -1,10 +1,5 @@
 /* colors
-brown : rgb(103, 70, 54);
-cream : rgb(248, 227, 189);
-light blue : rgb(147,174,211);
-soft main : #faf7f3;
-warm main : #f0e7db;
-dark : #1b1a1a
+light blue : #3d8ac8
 */
 
 /* Basic Reset */
@@ -123,13 +118,14 @@ body {
   max-width: 100%;
   height: auto; 
   display: block; 
+  padding: 10px;
 }
 
 #main-logo.logo-divider {
   max-width: 100%;
   height: auto;
   display: block; 
-  width: 3rem;
+  width: 5rem;
 }
 
 .divider-container{
@@ -168,20 +164,21 @@ body {
 
 .hero-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
+  top: 75%;
+  left: 5%;
   text-align: center;
-  width: 85%;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 1rem;
-  border-radius: 0.5rem; 
-  box-shadow: 0 0 10px 15px rgba(0,0,0,0.3);
-  
+  padding: 1rem;  
   display: inline-block;
   padding: 0.5rem 1rem;
 }
 
+
+#home-tagline{
+  color: rgb(34, 34, 34);
+  font-size: 2vw;
+  font-weight: 600;
+
+}
 
 .hero-text h1 {
   font-weight: 900;
@@ -197,6 +194,8 @@ body {
 }
 
 .hero img {
+  max-width: 100%;
+  height: auto;
   opacity: 0.7;
 }
 
@@ -257,9 +256,9 @@ main {
 
 
 
-/* feature properties sectino */
+/* feature classes */
 
-#resedential-list.featured-properties{
+#classes-list.featured-classes{
   padding-top: 3rem;
 }
 
@@ -309,7 +308,7 @@ CALL TO ACTION BUTTON
 
 .cta-btn {
   display: inline-block;
-  background-color: #2a5b84;   /* main brand color */
+  background-color: #3d8ac8;   /* main brand color */
   color: #fff;
   padding: 12px 24px;
   border: none;
@@ -421,24 +420,11 @@ button:hover {
   }
 }
 
-/* HOME 2 TEST STYLES */
-.hero-text.home2{
-  all:unset; 
+.home-page-header{
+  text-align: center;
+  font-style: italic;
 }
 
-.hero-text.home2 h1{
-  color:#313030;
-}
-
-.hero-text.home2 p{
-  color:#313030;
-}
-
-/* HOME 2 TEST STYLES */
-
-/* 
-HOME 3 TEST STYLES
-*/
 
 
 /* Mobile responsiveness */
@@ -466,6 +452,3 @@ HOME 3 TEST STYLES
   }
 }
 
-/* 
-HOME 3 TEST STYLES
-*/

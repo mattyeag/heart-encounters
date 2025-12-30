@@ -84,7 +84,7 @@ function createPropertyCard(property) {
 /// </summary>
 async function renderProperties(filter) {
   const commercial = await getPropertyData(filter);
-  const container = document.getElementById("resedential-list");
+  const container = document.getElementById("classes-list");
   container.innerHTML = commercial.map(createPropertyCard).join("");
   container.removeEventListener("click", cardClickHandler);
   container.addEventListener("click", cardClickHandler);
