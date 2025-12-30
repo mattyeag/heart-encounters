@@ -25,7 +25,7 @@ This README explains where data comes from, how it's loaded and cached, and how 
 
 - `assets/js/featured-properties.js` — creates and injects featured property cards on the home page. It waits for `PROPERTY_DATA` in sessionStorage.
 
-- `assets/js/customer-reviews.js` — fetches and renders customer reviews. It waits for `CONFIG_DATA` then fetches the reviews CSV and caches it.
+- `assets/js/class-reviews.js` — fetches and renders customer reviews. It waits for `CONFIG_DATA` then fetches the reviews CSV and caches it.
 
 - `assets/js/community.js` — fetches and renders businesses and handles business details (used on the community page and home featured list).
 
@@ -67,7 +67,7 @@ If you publish the Google Sheet as CSV, use the published URL and set it in `ass
 
 ### How pages consume data
 
-- Home (`index.html`): shows a subset (featured) of properties, a subset of customer reviews, and featured businesses. It relies on `featured-properties.js`, `customer-reviews.js`, and `community.js`.
+- Home (`index.html`): shows a subset (featured) of properties, a subset of customer reviews, and featured businesses. It relies on `featured-properties.js`, `class-reviews.js`, and `community.js`.
 - Residential (`pages/resedential.html`): shows the full residential property listing. The page contains a `data-page="resedential"` attribute and uses `resedential.js` to render a full list filtered by `RESIDENTIAL` flag.
 - Commercial (`pages/commercial.html`): same as residential but filtered by `COMMERCIAL`.
 - Community (`pages/community.html`): shows businesses and a detail pane. Clicking a business card on other pages may navigate here with `?biz=<ID>` to show the detail.
@@ -78,7 +78,7 @@ If you publish the Google Sheet as CSV, use the published URL and set it in `ass
 Each entity is represented by a simple HTML card constructed in JS and injected into a container element:
 
 - Property cards — created in `featured-properties.js` and the per-page listing scripts; they include an image, title, and a status badge.
-- Review cards — rendered by `customer-reviews.js` and show quote text, rating stars, and author name.
+- Review cards — rendered by `class-reviews.js` and show quote text, rating stars, and author name.
 - Business cards — rendered by `community.js` and include an image, short header, and details. Clicking a card shows a detail view.
 
 ### Developer notes and tips
@@ -99,4 +99,3 @@ Each entity is represented by a simple HTML card constructed in JS and injected 
 
 - To change card templates, edit the JS modules in `assets/js/` (they return HTML strings for injection).
 - To change data refresh rules, edit `sessionExpired()` and related logic in `assets/js/main.js`.
-

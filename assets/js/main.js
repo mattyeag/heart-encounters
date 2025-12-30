@@ -49,8 +49,8 @@ async function loadPages() {
 
 }
 
-async function loadPropertyData() {
-  const url = window.config.propertiesSheetUrl;
+async function loadClassData() {
+  const url = window.config.classesSheetUrl;
   const response = await fetch(url);
   const csvText = await response.text();
   let result;
@@ -75,10 +75,10 @@ async function loadPropertyData() {
     x.IMAGENAMES = imageUrls;
   });
 }
- let activeProperties = result.data.filter(x => x.STATUS.toLowerCase() !== "inactive");
+ let activeClasses = result.data.filter(x => x.STATUS.toLowerCase() !== "inactive");
  // store propery data in window and as cookie
-  window.propertyData = activeProperties;
-  sessionStorage.setItem("PROPERTY_DATA", JSON.stringify(activeProperties));
+  window.classData = activeClasses;
+  sessionStorage.setItem("CLASS_DATA", JSON.stringify(activeClasses));
 }
 
 
@@ -108,9 +108,9 @@ function setHomeTagline(newTagline) {
 
 async function setupSession(needsRefresh) {
   if (typeof needsRefresh === 'undefined') {
-    const propData = sessionStorage.getItem("PROPERTY_DATA");
+    const classData = sessionStorage.getItem("CLASS_DATA");
     const configData = sessionStorage.getItem("CONFIG_DATA");
-    const hasData = propData && configData;
+    const hasData = classData && configData;
     needsRefresh = !sessionStorage.getItem("SESSION_TIME") || !hasData || sessionExpired();
   }
 
@@ -121,7 +121,7 @@ async function setupSession(needsRefresh) {
   }
 
   // Load from sessionStorage into window state
-  const propData = sessionStorage.getItem("PROPERTY_DATA");
+  const classData = sessionStorage.getItem("CLASS_DATA");
   const configData = sessionStorage.getItem("CONFIG_DATA");
   try {
     window.config = JSON.parse(configData);
@@ -130,10 +130,10 @@ async function setupSession(needsRefresh) {
     console.error("Failed to parse CONFIG_DATA in setupSession:", e);
   }
   try {
-    window.propertyData = JSON.parse(propData);
+    window.classData = JSON.parse(classData);
   } catch (e) {
-    window.propertyData = [];
-    console.error("Failed to parse PROPERTY_DATA in setupSession:", e);
+    window.classData = [];
+    console.error("Failed to parse CLASS_DATA in setupSession:", e);
   }
   console.log("Session still valid → no refresh needed");
 }
@@ -141,9 +141,9 @@ async function setupSession(needsRefresh) {
 async function refreshData() {
   try{
   await getConfig()
-  await loadPropertyData();
+  await loadClassData();
   sessionStorage.removeItem("BUSINESSES_DATA");
-  sessionStorage.removeItem("CUSTOMER_REVIEW_DATA");
+  sessionStorage.removeItem("CLASS_REVIEW_DATA");
 
   sessionStorage.setItem("SESSION_TIME", JSON.stringify({ storedAt: Date.now() }));
   } catch(e){
@@ -156,17 +156,17 @@ window.isSessionExpired = sessionExpired
 
 // Run on page load
 async function initPages() {
-    const propData = sessionStorage.getItem("PROPERTY_DATA");
+    const classData = sessionStorage.getItem("CLASS_DATA");
     const configData = sessionStorage.getItem("CONFIG_DATA");
-    const hasData = propData && configData;
+    const hasData = classData && configData;
     const needsRefresh = !sessionStorage.getItem("SESSION_TIME") || !hasData || sessionExpired();
 
     if (needsRefresh) {
       console.log("Clearing stale session data");
-      window.propertyData = null;
+      window.classData = null;
       window.businessData = null;
       sessionStorage.removeItem("BUSINESSES_DATA");
-      sessionStorage.removeItem("CUSTOMER_REVIEW_DATA");
+      sessionStorage.removeItem("CLASS_REVIEW_DATA");
     }
 
     await setupSession(needsRefresh);    
