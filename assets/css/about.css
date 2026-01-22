@@ -10,7 +10,7 @@ dark : #1b1a1a
 
 /* About Me Page Styles */
 .about {
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: center;
   font-family: 'Source Sans Pro', sans-serif;

@@ -1,49 +1,47 @@
 // LOAD DATA
 
-// property test data 
+// class test data 
 
-let allProperties = [];
+let allClasses = [];
 let currentFilter = "all";
 
 
 /// <summary>
-/// Fetch property data from session storage and filter by status
+/// Fetch class data from session storage and filter by status
 /// </summary>
-async function getPropertyData(filter){
+async function getClassData(filter){
   let currentFilter = filter || "all";
   try {
-    const raw = sessionStorage.getItem("PROPERTY_DATA");
+    const raw = sessionStorage.getItem("CLASS_DATA");
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    allProperties = Array.isArray(parsed) ? parsed : [];
+    allClasses = Array.isArray(parsed) ? parsed : [];
     const cf = String(currentFilter).toLowerCase();
-    return allProperties.filter((x) => {
-      const val = x && x.RESIDENTIAL;
-      let isResidential = String(val).toLowerCase() === "true";
-      if (!isResidential) return false;                     // always require commercial
-      const status = String(x.STATUS || "").toLowerCase();
-      if (cf === "all") return true;                      // all commercial items
-      return status === cf;  
+    return allClasses.filter((x) => { 
+      
+      // gets all classes that match
+      if (cf === "all") return true;                      
+       
     });
   } catch (err) {
-    console.error("getPropertyData error:", err);
-    allProperties = [];
+    console.error("getClassData error:", err);
+    allClasses = [];
     return [];
   }
 }
 
 
 
-async function filterProperties(filter){
+async function filterClasses(filter){
   currentFilter = filter;
-  renderProperties(currentFilter);
+  renderClasses(currentFilter);
 }
 
 
 /// <summary>
 /// Create a property card HTML representation
 /// </summary>
-function createPropertyCard(property) {
+function createClassCard(property) {
   const imgSrc = (Array.isArray(property.IMAGENAMES) && property.IMAGENAMES[0]) ? property.IMAGENAMES[0] : '/assets/img/placeholder.png';
   const title = property.TITLE || '';
   const price = property.PRICE || '';
@@ -91,10 +89,10 @@ function createPropertyCard(property) {
 /// <summary>
 /// Render properties based on the provided filter
 /// </summary>
-async function renderProperties(filter) {
-  const resedential = await getPropertyData(filter);
+async function renderClasses(filter) {
+  const classes = await getClassData(filter);
   const container = document.getElementById("classes-list");
-  container.innerHTML = resedential.map(createPropertyCard).join("");
+  container.innerHTML = classes.map(createClassCard).join("");
   container.removeEventListener("click", cardClickHandler);
   container.addEventListener("click", cardClickHandler);
 }
@@ -136,9 +134,9 @@ function openPropertyModal(property) {
 
 
   // Start slideshow (change every 3 seconds)
-  startSlideshow(images);
-  document.getElementById("prev-img").onclick = () => {stopSlideshow(); changeImage(images, -1)};
-  document.getElementById("next-img").onclick = () => {stopSlideshow(); changeImage(images, 1)};
+  // startSlideshow(images);
+  // document.getElementById("prev-img").onclick = () => {stopSlideshow(); changeImage(images, -1)};
+  // document.getElementById("next-img").onclick = () => {stopSlideshow(); changeImage(images, 1)};
 }
 
 function startSlideshow(images) {
@@ -166,13 +164,11 @@ function updateImage(images) {
   if (!imgEl || !counterEl) return;
   if (!images || images.length === 0) {
     imgEl.src = '/assets/img/placeholder.png';
-    counterEl.textContent = `0 / 0`;
     return;
   }
   // clamp currentIndex
   currentIndex = Math.max(0, Math.min(currentIndex, images.length - 1));
   imgEl.src = images[currentIndex] || '/assets/img/placeholder.png';
-  counterEl.textContent = `${currentIndex + 1} / ${images.length}`;
 }
 
 function changeImage(images, step) {
@@ -191,7 +187,7 @@ function setupFilters() {
     btn.addEventListener("click", () => {
       const status = (btn.dataset.status || "all").toLowerCase();
       buttons.forEach(b => b.classList.toggle("active", (b.dataset.status || "").toLowerCase() === status));
-      filterProperties(status);
+      filterClasses(status);
     });
   });
 }
@@ -214,7 +210,7 @@ function cardClickHandler(e) {
   const card = e.target.closest(".property-card");
   if (!card) return;
   const idAttr = card.getAttribute("data-id");
-  const property = allProperties.find((p) => String(p.ID) === String(idAttr));
+  const property = allClasses.find((p) => String(p.ID) === String(idAttr));
   if (property) {
     openPropertyModal(property);
   }
@@ -243,13 +239,13 @@ async function initializeModal(){
   });
 }
 
-/// Initialize filters and render properties
+/// Initialize filters and render classes
 
-function waitForPropertyData(interval = 700) {
+function waitForClassData(interval = 700) {
   return new Promise(resolve => {
     const check = setInterval(() => {
-      console.log("checking for property data...")
-      if (sessionStorage.getItem("PROPERTY_DATA")) {
+      console.log("checking for class data...")
+      if (sessionStorage.getItem("CLASS_DATA")) {
         clearInterval(check);
         resolve();
       }
@@ -258,16 +254,16 @@ function waitForPropertyData(interval = 700) {
 }
 
 
-async function runResidential(){
-  if(!sessionStorage.getItem("PROPERTY_DATA")){
-    await waitForPropertyData();
+async function runClasses(){
+  if(!sessionStorage.getItem("CLASS_DATA")){
+    await waitForClassData();
   }
   setupFilters();
-  renderProperties(currentFilter).catch((err) => console.error("renderProperties failed:", err));
+  renderClasses(currentFilter).catch((err) => console.error("renderClasses failed:", err));
 }
 
 async function run(){
-  await runResidential();
+  await runClasses();
   await initializeModal();
   const params = new URLSearchParams(window.location.search || '');
   const selectedId = params.get('id');
