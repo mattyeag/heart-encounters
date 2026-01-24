@@ -42,7 +42,7 @@ async function filterClasses(filter){
 /// Create a property card HTML representation
 /// </summary>
 function createClassCard(property) {
-  const imgSrc = (Array.isArray(property.IMAGENAMES) && property.IMAGENAMES[0]) ? property.IMAGENAMES[0] : '/assets/img/placeholder.png';
+  const imgSrc = (Array.isArray(property.IMAGENAMES) && property.IMAGENAMES[0]) ? property.IMAGENAMES[0] : 'assets/img/placeholder.png';
   const title = property.TITLE || '';
   const price = property.PRICE || '';
   const details = property.DETAILS || '';
@@ -165,11 +165,11 @@ function stopSlideshow() {
 function updateImage(images) {
   if (!imgEl) return;
   if (!images || images.length === 0) {
-    imgEl.src = '/assets/img/placeholder.png';
+    imgEl.src = 'assets/img/placeholder.png';
     return;
   }
   currentIndex = Math.max(0, Math.min(currentIndex, images.length - 1));
-  imgEl.src = images[currentIndex] || '/assets/img/placeholder.png';
+  imgEl.src = images[currentIndex] || 'assets/img/placeholder.png';
 }
 
 function changeImage(images, step) {
