@@ -13,7 +13,7 @@ window.versionedUrl = versionedUrl = (url) => {
 async function getConfig(){
   console.log("fetching config..")
   try {
-  const res = await fetch(versionedUrl("assets/config.json"));
+  const res = await fetch(versionedUrl("/assets/config.json"));
   const freshConfig = await res.json();
   window.config = freshConfig;
   sessionStorage.setItem("CONFIG_DATA", JSON.stringify(freshConfig));

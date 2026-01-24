@@ -251,7 +251,7 @@ main {
   /* background-color: #faf7f3; */
   /* background-color: #f0e7db; */
   /* make background image opacity as 0.5 */
-  background-image: url('assets/img/brick-white.jpg');
+  background-image: url('/assets/img/brick-white.jpg');
 }
 
 
