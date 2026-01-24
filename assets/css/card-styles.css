@@ -59,8 +59,18 @@
 .property-link {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: rgb(103, 70, 54);
-  color: #fff;
+  background: #ebf7ff;
+  color: #3d3d3d;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.cart-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #fff6b0;
+  color: #3d3d3d;
   border-radius: 5px;
   text-decoration: none;
   transition: background 0.3s;

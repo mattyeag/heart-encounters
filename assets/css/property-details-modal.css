@@ -19,6 +19,26 @@
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
+.strong {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.small {
+  display: flex;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.cart-action-container {
+  display: flex;
+  justify-content: center;
+  margin: 0rem 1rem 0.5rem 0px;
+}
+
 .close-btn {
   height: 2rem;
   box-shadow: 0 0px 4px rgba(0, 0, 0, 0.3);
@@ -40,11 +60,20 @@
   position: relative;
   text-align: center;
   margin-bottom: 1rem;
+  border-bottom: 3px solid black;
+
+  height: 300px;
+  overflow: hidden;
 }
 
 .property-gallery img {
-  max-width: 100%;
+  /* max-width: 100%;
+  overflow: hidden; */
   border-radius: 8px;
+
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .property-gallery button {

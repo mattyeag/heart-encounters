@@ -107,12 +107,15 @@ function initElements(){
    modal = document.getElementById("property-modal");
    closeBtn = document.querySelector(".close-btn");
    imgEl = document.getElementById("property-image");
-   counterEl = document.getElementById("image-counter");
+   availabilityBadge = document.getElementById("availability-badge");
    titleEl = document.getElementById("property-title");
    priceEl = document.getElementById("property-price");
-   locationEl = document.getElementById("property-location");
    descEl = document.getElementById("property-description");
-   availabilityBadge = document.getElementById("availability-badge");
+   teacherNameEl = document.getElementById("property-teacher-name");
+   teacherEmailEl = document.getElementById("property-teacher-email");
+   locationEl = document.getElementById("property-location");
+   detailEl = document.getElementById("property-class-detail");
+   footnoteEl = document.getElementById("footnote");
 }
 
 let currentIndex = 0;
@@ -121,22 +124,21 @@ let currentIndex = 0;
 /// Open modal with property details
 /// </summary>
 function openPropertyModal(property) {
+  console.log("Opening modal for property:", property);
   if (!modal) return;
   titleEl && (titleEl.textContent = property.TITLE || '');
   priceEl && (priceEl.textContent = property.PRICE || '');
+  detailEl && (detailEl.textContent = property.DETAILS || '');
+  teacherNameEl && (teacherNameEl.textContent = property.TEACHER_NAME || '');
+  teacherEmailEl && (teacherEmailEl.textContent = property.TEACHER_EMAIL || '');
   locationEl && (locationEl.textContent = property.LOCATION || '');
   descEl && (descEl.textContent = property.DESCRIPTION || '');  
+  footnoteEl && (footnoteEl.textContent = property.FOOTNOTE || '');
   const images = Array.isArray(property.IMAGENAMES) ? property.IMAGENAMES : [];
   currentIndex = 0;
   updateImage(images);
 
   modal.style.display = "block";
-
-
-  // Start slideshow (change every 3 seconds)
-  // startSlideshow(images);
-  // document.getElementById("prev-img").onclick = () => {stopSlideshow(); changeImage(images, -1)};
-  // document.getElementById("next-img").onclick = () => {stopSlideshow(); changeImage(images, 1)};
 }
 
 function startSlideshow(images) {
@@ -161,12 +163,11 @@ function stopSlideshow() {
 /// Update the displayed image and counter in the modal
 /// </summary>
 function updateImage(images) {
-  if (!imgEl || !counterEl) return;
+  if (!imgEl) return;
   if (!images || images.length === 0) {
     imgEl.src = '/assets/img/placeholder.png';
     return;
   }
-  // clamp currentIndex
   currentIndex = Math.max(0, Math.min(currentIndex, images.length - 1));
   imgEl.src = images[currentIndex] || '/assets/img/placeholder.png';
 }
