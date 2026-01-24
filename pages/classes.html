@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heart Encounters</title>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=1.0.1" />
-  <link rel="stylesheet" href="/assets/css/card-styles.css?v=1.0.1">
-  <link rel="stylesheet" href="/assets/css/property-details-modal.css?v=1.0.1">
+  <script>
+    const isGitHubPages = location.hostname.includes('github.io');
+    const base = isGitHubPages ? '/heart-encounters/' : '/';
+    document.write(`<base href="${base}">`);
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.0.1" />
+  <link rel="stylesheet" href="assets/css/card-styles.css?v=1.0.1">
+  <link rel="stylesheet" href="assets/css/property-details-modal.css?v=1.0.1">
 
 </head>
 <body data-page="resedential">
@@ -30,7 +35,7 @@
 
   <footer id="site-footer"></footer>
 <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
-<script src="/assets/js/main.js?v=1.0.1"></script>
-<script src="/assets/js/classes.js?v=1.0.1"></script>
+<script src="assets/js/main.js?v=1.0.1"></script>
+<script src="assets/js/classes.js?v=1.0.1"></script>
 </body>
 </html>

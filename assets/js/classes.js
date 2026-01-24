@@ -199,7 +199,7 @@ function setupFilters() {
 /// </summary>
 async function loadModal(){
   try {
-    const modalHTML = await fetch('/partials/property-details-card.html').then(res => res.text());
+    const modalHTML = await fetch('partials/property-details-card.html').then(res => res.text());
     const placeholder = document.getElementById('property-details');
     if (placeholder) placeholder.innerHTML = modalHTML;
   } catch (err) {

@@ -17,7 +17,7 @@ dark : #1b1a1a
 }
 
 main { 
-  background-image: url('/assets/img/brick-white.jpg');
+  background-image: url('assets/img/brick-white.jpg');
 }
 
 .about-image{

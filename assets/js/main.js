@@ -13,7 +13,7 @@ window.versionedUrl = versionedUrl = (url) => {
 async function getConfig(){
   console.log("fetching config..")
   try {
-  const res = await fetch(versionedUrl("/assets/config.json"));
+  const res = await fetch(versionedUrl("assets/config.json"));
   const freshConfig = await res.json();
   window.config = freshConfig;
   sessionStorage.setItem("CONFIG_DATA", JSON.stringify(freshConfig));
@@ -25,11 +25,11 @@ async function getConfig(){
 
 async function loadPages() {
   // Load header
-  const headerHTML = await fetch('/partials/header.html').then(res => res.text());
+  const headerHTML = await fetch('partials/header.html').then(res => res.text());
   document.getElementById('site-header').innerHTML = headerHTML;
 
   // Load footer
-  const footerHTML = await fetch('/partials/footer.html').then(res => res.text());
+  const footerHTML = await fetch('partials/footer.html').then(res => res.text());
   document.getElementById('site-footer').innerHTML = footerHTML;
 
 

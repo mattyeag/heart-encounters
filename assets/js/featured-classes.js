@@ -32,7 +32,7 @@ function createClassCard(classItem) {
   // const isResidential = String(classItem.RESIDENTIAL || '').toLowerCase() === 'true';
   // const targetPage = isResidential ? '/pages/classes.html' : '/pages/commercial.html';
   // set navigation page on card based on a class attribute. For now, all go to classes.html
-  const targetPage = '/pages/classes.html';
+  const targetPage = 'pages/classes.html';
   
   
   const href = `${targetPage}?id=${encodeURIComponent(id)}`;

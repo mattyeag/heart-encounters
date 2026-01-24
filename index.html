@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heart Encounters</title>
+  <script>
+    const isGitHubPages = location.hostname.includes('github.io');
+    const base = isGitHubPages ? '/heart-encounters/' : '/';
+    document.write(`<base href="${base}">`);
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=1.0.1" />
-  <link rel="stylesheet" href="/assets/css/card-styles.css?v=1.0.1">
-  <link rel="stylesheet" href="/assets/css/classes-reviews.css?v=1.0.1">
-  <link rel="stylesheet" href="/assets/css/business-card.css?v=1.0.1">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.0.1" />
+  <link rel="stylesheet" href="assets/css/card-styles.css?v=1.0.1">
+  <link rel="stylesheet" href="assets/css/classes-reviews.css?v=1.0.1">
+  <link rel="stylesheet" href="assets/css/business-card.css?v=1.0.1">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@100;300..900&display=swap" rel="stylesheet">
 </head>
 <body data-page="home">
@@ -16,20 +21,20 @@
 
   <main>
     <section class="hero">
-      <img src="/assets/img/heart-en-logo.png" alt="Decorative background" class="hero-img" />
+      <img src="assets/img/heart-en-logo.png" alt="Decorative background" class="hero-img" />
       <div class="hero-text">
           <p id="home-tagline">Creative Arts and Equipping Center</p>
       </div>
     </section>
       <div class="cta-group">
-      <a href="/pages/classes.html" class="cta-btn">View Classes</a>
+      <a href="pages/classes.html" class="cta-btn">View Classes</a>
       <a href="#" class="cta-btn secondary">Donate</a>
     </div>
 
     <br><br><br>
      <div class="divider-container">
      _________
-    <img src="/assets/img/heart-dove2.png" alt="H.E" id="main-logo" class="logo-divider" width="90" />
+    <img src="assets/img/heart-dove2.png" alt="H.E" id="main-logo" class="logo-divider" width="90" />
      _________
     </div>
     <br><br><br>
@@ -45,7 +50,7 @@
     <br><br><br>
     <div class="divider-container">
      _________
-    <img src="/assets/img/heart-dove2.png" alt="H.E" id="main-logo" class="logo-divider" width="90" />
+    <img src="assets/img/heart-dove2.png" alt="H.E" id="main-logo" class="logo-divider" width="90" />
      _________
     </div>
     <br><br><br>
@@ -60,7 +65,7 @@
     <br><br><br>
      <div class="divider-container">
      _________
-    <img src="/assets/img/heart-dove2.png" alt="H.E" id="main-logo" class="logo-divider" width="90" />
+    <img src="assets/img/heart-dove2.png" alt="H.E" id="main-logo" class="logo-divider" width="90" />
      _________
     </div>
     <br><br><br>
@@ -77,9 +82,9 @@
 
   <footer id="site-footer"></footer>
   <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
-  <script src="/assets/js/main.js?v=1.0.1"></script>
-  <script src="/assets/js/class-reviews.js?v=1.0.1"></script>
-  <script src="/assets/js/featured-classes.js?v=1.0.1"></script>
-  <script src="/assets/js/community.js?v=1.0.1"></script>
+  <script src="assets/js/main.js?v=1.0.1"></script>
+  <script src="assets/js/class-reviews.js?v=1.0.1"></script>
+  <script src="assets/js/featured-classes.js?v=1.0.1"></script>
+  <script src="assets/js/community.js?v=1.0.1"></script>
 </body>
 </html>
