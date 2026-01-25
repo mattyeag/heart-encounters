@@ -1,5 +1,6 @@
 /* colors
 light blue : #3d8ac8
+header background : #f0f5fa
 */
 
 /* Basic Reset */
@@ -13,7 +14,7 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   margin: 0;
-  background:#f0e7db;
+  background:#f0f5fa;
   padding: 0;
 }
 
@@ -32,9 +33,9 @@ body {
   padding: 0.3rem 0.3rem;
   position: relative; /* to contain absolute dropdown */
   z-index: 1000;
-  border-bottom: 3px solid rgb(103, 70, 54);
+  border-bottom: 1px solid black;
   box-shadow: 0 3px 9px rgba(0,0,0,0.3);
-  background: #faf7f3;
+  background: #f0f5fa;
    /* background: rgb(174, 148, 130); */
 }
 
@@ -153,7 +154,7 @@ body {
 
 /* Hero Section */
 .hero {
-  padding-top: 5rem;
+  /* padding-top: 5rem; */
   padding-bottom: 5rem;
   line-height: 1.8;
   font-family: 'Source Sans Pro', sans-serif;
@@ -164,14 +165,14 @@ body {
 
 .hero-text {
   /* text-align: center; */
-  position: absolute;
+  /* position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
   display: inline-block;
-  background-color: #ffffff80;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 40px 11px rgba(0, 0, 0, 0.1);
+  /* background-color: #ffffff80; */
+  /* border-radius: 0.5rem;
+  box-shadow: 0 0 40px 11px rgba(0, 0, 0, 0.1); */
   width: 85%;
 }
 
@@ -184,13 +185,20 @@ body {
 }
 
 .hero img {
-  max-width: 80%;
+  max-width: 65%;
   height: auto;
-  opacity: 0.7;
+  opacity: 0.6;
   margin: 0;
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 7rem;
+
+  }
+
+
   .hero-text {
     position: static;       
     transform: none;       
@@ -210,11 +218,13 @@ body {
 
   .hero-text p {
     color: #1b1a1a;
-    font-size: 5vw;
+    
+    font-size: 6vw;
+    display: inline;
   }
 
   .hero img {
-    opacity: 0.8;
+    opacity: 0.6;
     padding-bottom: 2rem;
     max-width: 95%;
   }
@@ -289,19 +299,20 @@ CALL TO ACTION BUTTON
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 .cta-btn.secondary {
-  background-color: #654b3b; /* brown from your palette */
+  background-color: #000000; /* brown from your palette */
 }
 
 .cta-btn.secondary:hover {
-  background-color: #513b2d;
+  background-color: #787878;
 }
 
 .cta-btn {
   display: inline-block;
-  background-color: #3d8ac8;   /* main brand color */
+  background-color: #0279dc;   /* main brand color */
   color: #fff;
   padding: 12px 24px;
   border: none;
@@ -327,18 +338,13 @@ CALL TO ACTION BUTTON
 
 
 
-/* Mobile responsiveness commented while doing home styles test
+/* Mobile responsiveness CTA group */
 @media (max-width: 768px) {
-  .image-row {
-    flex-direction: column;
-    gap: 10px;
+  .cta-group {
+    margin-bottom: 4rem;
   }
 
-  .image-row img {
-    max-width: 90%;
-  }
-
-} */
+}
 
 
 /* Sub Menu */
