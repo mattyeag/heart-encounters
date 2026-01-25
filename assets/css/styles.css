@@ -203,9 +203,9 @@ body {
   .hero-text {
     position: static;       
     transform: none;       
-    display: block;         
+    display: inline;         
     max-width: 100%;        
-    margin: 1rem auto 0;   
+    /* margin: 1rem auto 0;    */
     background-color: transparent; 
     box-shadow: none;      
     padding: 0;            

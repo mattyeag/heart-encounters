@@ -79,7 +79,7 @@ function createClassCard(property) {
         <h3 class="property-title">${title}</h3>
         <p class="property-price">${price}</p>
         <p class="property-details">${details}</p>
-        <a href="#" class="property-link">View Details</a>
+        <a class="property-link">View Details</a>
       </div>
     </div>
   `;
@@ -116,6 +116,7 @@ function initElements(){
    locationEl = document.getElementById("property-location");
    detailEl = document.getElementById("property-class-detail");
    footnoteEl = document.getElementById("footnote");
+   cartButtonEl = document.getElementById("add-cart-btn");
 }
 
 let currentIndex = 0;
@@ -135,6 +136,9 @@ function openPropertyModal(property) {
   descEl && (descEl.textContent = property.DESCRIPTION || '');  
   footnoteEl && (footnoteEl.textContent = property.FOOTNOTE || '');
   const images = Array.isArray(property.IMAGENAMES) ? property.IMAGENAMES : [];
+  cartButtonEl && (cartButtonEl.onclick = () => {
+    alert(`Cart not available yet! (would add "${property.TITLE}" | class #${property.ID} to cart!)`);
+  });
   currentIndex = 0;
   updateImage(images);
 
