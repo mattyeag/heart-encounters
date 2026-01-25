@@ -1,3 +1,9 @@
+/* 
+background colors: #f0f5fa
+cart button: #ffe72e
+property link: #ebf7ff
+*/
+
 #classes-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -42,7 +48,7 @@
 .property-title {
   margin: 0 0 0.5rem 0;
   font-size: 1.2rem;
-  color: rgb(103, 70, 54);
+  color: rgb(69, 69, 69);
 }
 
 .property-price {
@@ -69,8 +75,8 @@
 .cart-link {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #fff6b0;
-  color: #3d3d3d;
+  background: #ffe72e;
+  color: #2c2c2c;
   border-radius: 5px;
   text-decoration: none;
   transition: background 0.3s;

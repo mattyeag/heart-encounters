@@ -48,18 +48,18 @@ body {
 #site-header .nav-links li {
   margin-left: 1.5rem;
   padding: 0rem 2rem 0rem 2rem;
-  border-right: 2px solid rgb(103, 70, 54);
+  border-right: 2px solid rgb(33, 33, 33);
   &:last-child{
     border-right: none;
   }
 }
 
 #site-header .nav-links a {
-  color: rgb(76, 76, 76);
+  color: rgb(57, 57, 57);
   text-decoration: none;
   font-size: larger;
   &:hover {
-    color: rgb(103, 70, 54);
+    color: rgb(0, 0, 0);
   }
 }
 
@@ -79,18 +79,19 @@ body {
     display: none;
     flex-direction: column;
     width: 50%;
-    background: #faf7f3;
+    background: #f4f4f4;
     position: absolute;
     top: 100%;
     right: 1px;
-    border: 1px solid rgb(103, 70, 54);
+    border: 1px solid rgb(183, 183, 183);
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
 
   #site-header .nav-links li {
     margin: 0;
-    border-top: 1px solid rgb(103, 70, 54);;
+    border-top: 1px solid rgb(97, 129, 163);;
     padding: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     
   }
 

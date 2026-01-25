@@ -1,10 +1,5 @@
 /* colors
-brown : rgb(103, 70, 54);
-cream : rgb(248, 227, 189);
-light blue : rgb(147,174,211);
-soft main : #faf7f3;
-warm main : #f0e7db;
-dark : #1b1a1a
+text: #1e1e1e
 */
 
 
@@ -32,7 +27,7 @@ main {
   object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.7);
-  background-color: #f0e7db;
+  background-color: #edf5ff;
   opacity: 0.8;
   
 
@@ -45,18 +40,18 @@ main {
 
 .about-content h1 {
   font-size: 2rem;
-  color: rgb(103, 70, 54);
+  color: #1e1e1e;
   margin-bottom: 1rem;
 }
 
 .about-content h2 {
-  color: rgb(82, 56, 42);
+  color: #404040;
   margin-bottom: 0.5rem;
 }
 
 .about-content p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.5rem;
+  line-height: 1.8;
   color: #334155;
   margin-bottom: 1rem;
 }
@@ -64,7 +59,7 @@ main {
 .about-content .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  background-color: rgb(103, 70, 54);
+  background-color: rgb(26, 116, 225);
   color: #fff;
   border-radius: 8px;
   text-decoration: none;
@@ -73,7 +68,7 @@ main {
 }
 
 .about-content .btn:hover {
-  background-color: rgb(75, 52, 40);
+  background-color: rgb(145, 193, 238);
   transform: translateY(-2px);
 }
 
