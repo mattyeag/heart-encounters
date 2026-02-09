@@ -398,11 +398,12 @@ CALL TO ACTION BUTTON
   }
 }
 
-button:hover {
-  background-color: #4b90ff;      /* bright blue accent on hover */
+/*  from contact form buttons, conflicts with catagories dropdown button */
+/* button:hover {
+  background-color: #4b90ff;     
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
+} */
 
 .style-test{
   padding-left: 4rem;

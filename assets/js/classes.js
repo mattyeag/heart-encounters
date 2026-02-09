@@ -11,6 +11,7 @@ let currentFilter = "all";
 /// </summary>
 async function getClassData(filter){
   let currentFilter = filter || "all";
+  console.log(" filtering data by category:", filter);
   try {
     const raw = sessionStorage.getItem("CLASS_DATA");
     if (!raw) return [];
@@ -18,9 +19,9 @@ async function getClassData(filter){
     allClasses = Array.isArray(parsed) ? parsed : [];
     const cf = String(currentFilter).toLowerCase();
     return allClasses.filter((x) => { 
-      
       // gets all classes that match
-      if (cf === "all") return true;                      
+      if (cf === "all") return true; 
+      return cf === x.CATEGORY.toLowerCase();                     
        
     });
   } catch (err) {
@@ -28,13 +29,6 @@ async function getClassData(filter){
     allClasses = [];
     return [];
   }
-}
-
-
-
-async function filterClasses(filter){
-  currentFilter = filter;
-  renderClasses(currentFilter);
 }
 
 
@@ -84,6 +78,12 @@ function createClassCard(property) {
     </div>
   `;
 }
+
+async function filterClasses(filter){
+  currentFilter = filter;
+  renderClasses(currentFilter);
+}
+
 
 
 /// <summary>
@@ -183,20 +183,6 @@ function changeImage(images, step) {
 }
 
 
-/// <summary>
-/// Set up filter buttons for property status
-/// </summary>
-function setupFilters() {
-  const buttons = document.querySelectorAll(".filter-btn");
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const status = (btn.dataset.status || "all").toLowerCase();
-      buttons.forEach(b => b.classList.toggle("active", (b.dataset.status || "").toLowerCase() === status));
-      filterClasses(status);
-    });
-  });
-}
-
 
 /// <summary>
 /// Load the modal content
@@ -259,16 +245,46 @@ function waitForClassData(interval = 700) {
 }
 
 
+async function setupCatagoriesBrowser(){
+  const toggleBtn = document.getElementById("browseToggle");
+  const menu = document.getElementById("browseMenu");
+
+    toggleBtn.addEventListener("click", () => {
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    // click category
+    menu.querySelectorAll("li").forEach(item => {
+      item.addEventListener("click", () => {
+        // menu.querySelectorAll("li").forEach(li => li.classList.remove("active"));
+        // item.classList.add("active");
+
+        const category = item.dataset.status;
+        filterClasses(category);
+        menu.style.display = "none";
+      });
+    });
+
+    // close if clicking outside
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".browse-dropdown")) {
+        menu.style.display = "none";
+      }
+    });
+}
+
+
 async function runClasses(){
   if(!sessionStorage.getItem("CLASS_DATA")){
     await waitForClassData();
   }
-  setupFilters();
+  // setupFilters();
   renderClasses(currentFilter).catch((err) => console.error("renderClasses failed:", err));
 }
 
 async function run(){
   await runClasses();
+        setupCatagoriesBrowser();
   await initializeModal();
   const params = new URLSearchParams(window.location.search || '');
   const selectedId = params.get('id');
