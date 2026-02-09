@@ -410,6 +410,39 @@ CALL TO ACTION BUTTON
 }
 
 
+/* CART STYLES */
+#cart-img-container{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  position: relative;
+  /* display: inline-block; */
+}
+
+#cart-img-container img{
+  width: 30px;
+}
+
+
+.cart-badge{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #FFD200; /* yellow */
+  border-radius: 50%;
+  display: none;
+}
+
+.cart-badge.active {
+  display: block;
+}
+
+
+
+
+
 #nav-bar-text{
   font-family: "Merriweather", serif;
   color: rgb(10, 10, 10);

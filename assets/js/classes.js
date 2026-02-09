@@ -145,6 +145,9 @@ function openPropertyModal(property) {
   modal.style.display = "block";
 }
 
+
+
+
 function startSlideshow(images) {
   stopSlideshow(); // Clear if already running
   slideshowInterval = setInterval(() => {

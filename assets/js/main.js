@@ -27,7 +27,7 @@ async function loadPages() {
   // Load header
   const headerHTML = await fetch('partials/header.html').then(res => res.text());
   document.getElementById('site-header').innerHTML = headerHTML;
-
+  window.headerLoaded = true;
   // Load footer
   const footerHTML = await fetch('partials/footer.html').then(res => res.text());
   document.getElementById('site-footer').innerHTML = footerHTML;
@@ -156,6 +156,7 @@ window.isSessionExpired = sessionExpired
 
 // Run on page load
 async function initPages() {
+    window.headerLoaded = false;
     const classData = sessionStorage.getItem("CLASS_DATA");
     const configData = sessionStorage.getItem("CONFIG_DATA");
     const hasData = classData && configData;
