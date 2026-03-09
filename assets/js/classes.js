@@ -48,17 +48,17 @@ function createClassCard(property) {
   let badgeClass = '';
 
   switch (status) {
-    case 'open':
-      badgeText = 'Available';
-      badgeClass = 'status-open';
+    case 'kids':
+      badgeText = 'Kids';
+      badgeClass = 'status-kids';
       break;
-    case 'closed':
-      badgeText = 'Unavailable';
-      badgeClass = 'status-closed';
+    case 'adults':
+      badgeText = 'Adults';
+      badgeClass = 'status-adults';
       break;
-    case 'soon':
-      badgeText = 'Available Soon';
-      badgeClass = 'status-soon';
+    case 'mixed':
+      badgeText = 'All Ages';
+      badgeClass = 'status-mixed';
       break;
     default:
       badgeText = '';
@@ -137,7 +137,9 @@ function openPropertyModal(property) {
   footnoteEl && (footnoteEl.textContent = property.FOOTNOTE || '');
   const images = Array.isArray(property.IMAGENAMES) ? property.IMAGENAMES : [];
   cartButtonEl && (cartButtonEl.onclick = () => {
-    alert(`Cart not available yet! (would add "${property.TITLE}" | class #${property.ID} to cart!)`);
+         addToCart(property);
+         alert(`Added ${property.TITLE} to cart!`);
+         window.refreshCartBadge();
   });
   currentIndex = 0;
   updateImage(images);
@@ -146,6 +148,23 @@ function openPropertyModal(property) {
 }
 
 
+
+function addToCart(property) {
+  const CART_KEY = "CART_ITEMS";
+  let cart = localStorage.getItem(CART_KEY);
+  try {
+    cart = cart ? JSON.parse(cart) : [];
+  } catch (e) {
+    console.error("Error parsing cart from localStorage:", e);
+    cart = [];
+  }
+  if (!Array.isArray(cart)) {
+    cart = [];
+  }
+  cart.push(property);
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  return cart;
+}
 
 
 function startSlideshow(images) {

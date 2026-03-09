@@ -69,3 +69,7 @@ blue colors #e7feff
 .browse-dropdown:hover .dropdown-content {
   display: block;
 } */
+
+.browse-dropdown button{
+  border: 1px solid rgb(47, 100, 199); 
+}

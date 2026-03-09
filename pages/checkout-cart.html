@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Checkout - Heart Encounters</title>
+
+<script>
+const isGitHubPages = location.hostname.includes('github.io');
+const base = isGitHubPages ? '/heart-encounters/' : '/';
+document.write(`<base href="${base}">`);
+</script>
+
+<link rel="stylesheet" href="assets/css/styles.css?v=1.0.1" />
+<link rel="stylesheet" href="assets/css/checkout.css?v=1.0.1" />
+</head>
+
+<body data-page="checkout">
+
+<header id="site-header"></header>
+
+<main class="checkout-container">
+
+  <h1>Your Cart</h1>
+
+  <!-- ITEMS SECTION -->
+  <section id="cart-items" class="cart-items">
+
+
+  </section>
+
+
+  <!-- ITEM DETAILS SECTION -->
+  <!-- <section id="item-details" class="item-details">
+
+    <h2>Item Details</h2>
+
+    <div class="details-placeholder">
+      <p>Select an item to review its details and complete any required selections.</p>
+    </div>
+
+
+  </section> -->
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+<script src="assets/js/main.js?v=1.0.1"></script>
+<script src="assets/js/cart.js?v=1.0.1"></script>
+<script src="assets/js/checkout-cart.js?v=1.0.1"></script>
+
+</body>
+</html>

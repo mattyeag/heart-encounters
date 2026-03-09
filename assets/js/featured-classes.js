@@ -10,17 +10,17 @@ function createClassCard(classItem) {
   let badgeClass = '';
 
   switch (status) {
-    case 'open':
-      badgeText = 'Available';
-      badgeClass = 'status-open';
+    case 'kids':
+      badgeText = 'Kids';
+      badgeClass = 'status-kids';
       break;
-    case 'closed':
-      badgeText = 'Unavailable';
-      badgeClass = 'status-closed';
+    case 'adults':
+      badgeText = 'Adults';
+      badgeClass = 'status-adults';
       break;
-    case 'soon':
-      badgeText = 'Available Soon';
-      badgeClass = 'status-soon';
+    case 'mixed':
+      badgeText = 'All Ages';
+      badgeClass = 'status-mixed';
       break;
     default:
       badgeText = '';

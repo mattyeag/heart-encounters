@@ -12,18 +12,26 @@ async function getCartItems() {
 
 
 async function run() {
-    const cartItems = await getCartItems();
-    document.querySelector(".cart-badge").classList.toggle("active", cartItems.length == 0);
+    refreshCartBadge();
     const cart = document.getElementById("cart-img-container");
     cart.addEventListener("click", () => {
-        alert("Cart coming soon!");
-    });
-    
+        window.location.href = "pages/checkout-cart.html";
+    });  
+     
+}
+
+async function refreshCartBadge() {
+    const cartItems = await getCartItems();
+    if(cartItems !== null){
+        document.querySelector(".cart-badge").classList.toggle("active", cartItems.length > 0);
+    }
 }
 
 
 document.addEventListener("DOMContentLoaded", waitForHeader);
- 
+
+window.refreshCartBadge = refreshCartBadge;
+
 function waitForHeader() {
     let x = 0;
     const interval = setInterval(() => {

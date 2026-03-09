@@ -103,15 +103,15 @@ property link: #ebf7ff
 
 /* Property status badge */
 /* Color variations */
-.status-open {
+.status-kids {
   background-color: #28a745; /* green */
 }
 
-.status-closed {
-  background-color: #6c757d; /* gray */
+.status-adults {
+  background-color: #62b2f7; /* gray */
 }
 
-.status-soon {
+.status-mixed {
   background-color: #ffc107; /* yellow */
   color: #333;
 }
